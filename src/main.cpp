@@ -118,6 +118,15 @@ class Grasp {
 			cout<<endl;
 		}
 		void printCircuitLatex(){
+
+			//Latex Header
+			cout<<endl<<endl<<"%% LATEX STYLE"<<endl;
+			cout<<"\\documentclass{standalone}"<<endl;
+			cout<<"\\usepackage{tikz}"<<endl;
+			cout<<"\\usetikzlibrary{positioning}"<<endl;
+			cout<<"\\begin{document}"<<endl;
+			cout<<"\\begin{tikzpicture}[scale=0.1, every node/.style={scale=0.1,line width=0.1pt}]"<<endl;
+
 			float scale = 100.0;
 			for (int i = 0; i < best_solution->getSize_circuit(); i++){
 				cout<<"\\node[draw,circle] ("<<input[best_solution->getLabelByIndex(i)-1].label<<") at ("<<(input[best_solution->getLabelByIndex(i)-1].x/scale)<<","<<(input[best_solution->getLabelByIndex(i)-1].y/scale)<<"){"<<input[best_solution->getLabelByIndex(i)-1].label<<"};"<<endl;
@@ -126,6 +135,11 @@ class Grasp {
 				cout<<"\\draw[-,line width=0.1pt] ("<<best_solution->getLabelByIndex(i)<<") -- ("<<best_solution->getLabelByIndex(i+1)<<");"<<endl;
 			}
 			cout<<"\\draw[-,line width=0.1pt] ("<<best_solution->getLabelByIndex(size_graph-1)<<") -- ("<<best_solution->getLabelByIndex(0)<<");"<<endl;
+
+			//Latex Footer
+			cout<<"\\end{tikzpicture}"<<endl;
+			cout<<"\\end{document}"<<endl;
+			cout<<endl;
 		}
 		Solution *Update_Cost(Solution *solution) {
 			solution->setCost(0);
@@ -334,7 +348,7 @@ int main(int argc, char *argv[]){
 
 	cout<<"Best Solution: "<<g.getCostBestSolution()<<endl;
 	cout<<"Optimal: 6656"<<endl;
-	g.printCircuitLatex();	
+	g.printCircuitLatex();
 	file.close();
 	delete[] myGraph;
 	return 0;

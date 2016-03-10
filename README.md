@@ -2,26 +2,14 @@ BEGIN
 
 	Travelling Salesman Problem (TSP) implemented in Grasp.
 
-	So far, I've implemented using 2-opt(TWO_OPT) and Swap(SWAP) as local seach procedures.
+	So far, I've implemented using 2-opt(TWO_OPT) and Simple Swap(SWAP) as local seach procedures.
 
-	The Makefile outputs to exit.txt.
-	To draw the nodes in Latex, please use:
-	%%%========
-	\documentclass{standalone}
-	\usepackage{tikz}
-	\usetikzlibrary{positioning}
-	\begin{document}
-	\begin{tikzpicture}[scale=0.1, every node/.style={scale=0.1,line width=0.1pt}]
+	The Makefile outputs to src/exit.txt. But you can change it as your preference.
 
-	%%%%% OUTPUT FROM MAIN
-
-	\end{tikzpicture}
-	\end{document}
-	%%%========
-
+	By default, the source code outputs the graph vertex and edges in Latex style. You can comment the function printCircuitLatex() in main to prevent the printing.
 
 	Format:
-	./grasp <file> <alpha> <grasp_iterations> <RCL size> <local_search_type> > exit.txt
+	./grasp <file> <alpha> <grasp_iterations> <RCL size> <local_search_type>
 
 	local_search_type:
 	TWO_OPT - 2-opt
