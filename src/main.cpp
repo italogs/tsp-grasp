@@ -7,7 +7,7 @@
 #include <sstream>
 #include <climits>
 #include <cmath>
-#include "mtrand.h"
+#include "../lib/mtrand.h"
 using namespace std;
 
 
